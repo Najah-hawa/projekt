@@ -1,0 +1,151 @@
+*{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* gör design för toppnav*/
+#mainheader{
+    background-color: #303434;
+    width: 100%;
+   
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 200px ;
+}
+.active{
+    text-decoration: none;
+    color: hsla(198, 5%, 59%, 0.941);
+    text-shadow: 2px 4px 5px #4e6b68f0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+.navigation a{
+    color: #e3e4e9;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-left: 30px;
+}
+.navigation a:hover{
+    color: #51a79df0;
+}
+.topnav a.icon {
+    display: none;
+   }
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+h2, h3, h4, h5, h6 {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+/* ska lägga två container bredvid varandra */
+.container{
+    display: flex;
+    flex-direction:row;
+    justify-content:left;
+
+}
+/*lägga en container för att visa medlemmar */
+.medlemmar{
+background-color: hsla(198, 5%, 59%, 0.941);
+padding-left: 30px;
+padding-right: 40px;
+border-radius: 40px;
+margin-top: 50px;
+margin-left: 10px;
+
+}
+
+/* här ska visas blogg eller andra information*/
+.content{
+    margin-left: 10%;
+
+}
+
+/* gör design för form */
+.label{
+    padding-left: 50px;
+    font-size: 17px;
+  }
+  p{
+    font-size: 1.6rem;
+  }
+  .användare {
+    margin-top: 15px;
+    margin-bottom: 24px;
+    width: 600px;
+    height: 50px;
+}
+form {
+    margin-top: 30px;
+    font-size: 1.3rem;
+}
+
+.submit {
+    width: 400px;
+    height: 40px;
+    background-color: #4e6b68f0;
+    color: white;
+    box-shadow: 2px 4px 20px #4e6b68f0;
+    margin-top: 20px;
+    margin-left: 18%;
+}
+.skapa-a{
+    color: #3F403F;
+    font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+   @media (max-width:1100px){
+    /* Style the navigation menu */
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+        position: relative;
+      }
+      
+      .topnav #myLinks {
+        display: none;
+      }
+    
+      .topnav a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+      }
+    
+      .topnav a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 35px;
+      }
+     
+      .topnav a:hover {
+        background-color: #4e6b68f0;;
+        color: black;
+        text-shadow: 2px 4px 5px #0e1617f0;
+      }
+
+    }
+
