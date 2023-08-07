@@ -1,21 +1,49 @@
-<?php include("includes/config.php"); ?> 
-
 <?php
 $page_title = "Startsida";
-include("includes/header.php");
+include("includes/config.php");
+include("includes/header.php"); 
 ?>
 
-
 <div class = content> 
+<h2> Inloggning </h2>
 
-<h2> logga in </h2> 
-<p>Är du inte medlem? <a href="registera-konto.php" class="skapa-a">Skapa ett nytt konto</a></p>
+
+<?php
+if(isset($_GET['message'])){
+    echo "<p class='error'>" . $_GET['message'] .  "</p>";
+}
+?>
+
+<?php  
+
+if(isset($_POST["username"])) {
+
+    $username = $_POST["username"];
+    $password= $_POST["password"];
+    $newuser= new User();
+    
+    if ($newuser -> loginUser($username, $password)) {
+        $_SESSION["username"] = $username;
+        header("location:admin.php");
+        
+    }else {
+        $felmeddelande = "<p class= 'error'> Felaktig användarnamn/lösenord </p>";
+        echo  $felmeddelande;
+    }
+
+}
+ 
+    
+
+
+?> 
+
 <form  method="post" action="login.php" class="form">  
-     <label for="username" > Användarnamn: </label>
+     <label  class="label"  for="username" > Användarnamn: </label>
      <br> 
      <input class="användare" type="text" name="username" id="username"> 
      <br> 
-     <label for="password"> Lösenord: </label>
+     <label class="label"  for="password"> Lösenord: </label>
      <br> 
      <input class="användare" type="password" name="password" id="password"> 
      <br> 
@@ -23,6 +51,3 @@ include("includes/header.php");
 
 </form> 
 
-
-</div> 
-</div> 

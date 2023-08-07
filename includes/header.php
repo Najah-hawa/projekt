@@ -24,9 +24,11 @@ include("includes/mainmenu.php");
 <div class= "medlemmar" > 
     <h2>Medlemmar </h2>
 <nav>
-        <ul>
-            <li>Najah Hawa</li>
-        </ul>
+
+
+<ul>
+
+</ul>
     </nav>
 </div> 
-
+<div class= main-container> 
