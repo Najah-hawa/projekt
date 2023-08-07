@@ -21,7 +21,8 @@ function __construct(){
  //lägga till nya användare nyheter
     public function registerUser(string $username, string $email, string $password) : bool{
      $db = new mysqli("localhost", "username", "pass", "username");
-
+     $username= $this->db->real_escape_string($username);
+     $email= $this->db->real_escape_string($email);
      //hash password 
      $salt =  '$2a$07$uayhsgetywuijfd7hk102030405H$';
      $password = crypt($password, $salt);
@@ -65,6 +66,7 @@ public function setpassword (string $password): bool {
 
 //kontrollera om email är upptaget
 public function isemailtaken ($email){
+$email= $this->db->real_escape_string($email);
  if (!$this->setinnehall($email)) return false;   
  $sql = "SELECT email FROM users WHERE email= '$email'";
  $result= $this->db->query($sql);
@@ -78,6 +80,8 @@ public function isemailtaken ($email){
 
 //log in användare 
 public function loginUser($email, $password){
+    $password= $this->db->real_escape_string($password);
+    $email= $this->db->real_escape_string($email);
     if (!$this->setinnehall($email)) return false;
     if (!$this->setpassword($password)) return false;   
     $sql = "SELECT password FROM users WHERE email= '$email'";
@@ -107,7 +111,7 @@ public function getusername(): array{
 }
    
 
-
+   
 
 
 

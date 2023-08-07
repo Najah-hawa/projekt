@@ -5,14 +5,14 @@ include("includes/header.php");
 ?>
 
 
-<h1> Senaste nyheter </h1> 
+<h1> Här kan du läsa alla blogg på vår sida </h1> 
 <article id = "postHolder"> 
 
 
 
 <?php
 $nyheter = new Nyhet();
-$list = $nyheter->getnyheter();
+$list = $nyheter->getallnyheter();
 foreach($list as $row){
     $innehall = $row['innehall'];
     ?> 
@@ -30,4 +30,3 @@ foreach($list as $row){
 
 
 </article> 
-

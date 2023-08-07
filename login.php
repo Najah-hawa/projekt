@@ -38,7 +38,7 @@ if(isset($_POST["email"])) {
 ?> 
 
 <form  method="post" action="login.php" class="form">  
-     <label  class="label"  for="email" > Användarnamn: </label>
+     <label  class="label"  for="email" > Email: </label>
      <br> 
      <input class="användare" type="text" name="email" id="email"> 
      <br> 

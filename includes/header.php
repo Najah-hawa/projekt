@@ -27,7 +27,16 @@ include("includes/mainmenu.php");
 
 
 <ul>
-
+<?php
+//SQL-fråga för att läsa ut användare namn 
+$users = new Users();
+$list = $users ->getusername();
+foreach($list as $row){
+    ?> 
+    <?php
+     echo   "<li>" .  $row['username']. "</li>" ; ?> <br> <?php 
+}
+?>
 </ul>
     </nav>
 </div> 
