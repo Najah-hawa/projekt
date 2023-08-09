@@ -8,12 +8,6 @@ if(!isset($_SESSION["email"])){
     header("Location: login.php?message=du måste vara inloggad!");
 }
 ?>
-<?php
-$nyhet = new Nyhet();
-echo "<pre>";
-var_dump($nyhet -> uppdatenyhet(4,"nyhet4", "prova uppdatera"));
-echo "</pre>";
-?>
 
 <?php
 $nyhet = new Nyhet();
@@ -62,7 +56,17 @@ if (isset ($_GET['deleteid'])){
 
 
 <div class="out"> 
-<p> Welcome <?php echo $_SESSION['email']; ?>  </p>
+<p> Welcome <?php if(isset($_SESSION["email"])){
+    $users = new Users();
+    $list = $users ->getusername();
+    foreach($list as $row){
+       
+         echo   $row['username'];
+        }
+    };
+        ?>
+ </p>
+
 <p class="logaout"> <a href= "logaout.php" > Logga out </a> </p>
 </div>
 

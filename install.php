@@ -22,15 +22,15 @@ $sql.=  "CREATE TABLE blogg(
 /* SQL-fråga för att skapa tabell */
 $sql .= "DROP TABLE IF EXISTS users;
     CREATE TABLE users(
-    id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(64) NOT NULL,
+    username VARCHAR(64) NOT NULL PRIMARY KEY ,
     email VARCHAR(156),
     password VARCHAR(256)
 );";
 /* SQL-fråga för att lägga in data */
+$sql .= "INSERT INTO blogg (titel, innehall ) VALUES
+('nyhet1','skriva lite text');";
 $sql .= "INSERT INTO users (username, email, password) VALUES
 ('najah','najah@gmail.com', 'pass');";
-
 echo "<pre>$sql</pre>"; // Skriv ut SQL-frågan till skärm
 
 /* Skicka SQL-frågan till DB */
