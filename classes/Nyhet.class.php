@@ -4,7 +4,7 @@ class Nyhet {
 private $db;
 private $name;
 private $innehall;
-
+private $username;
 
 
 //construktor
@@ -18,11 +18,12 @@ if($this -> db->connect_errno > 0){
 }
 
 //lägga nyheter
-public function addnyhet(string $name, string $innehall) : bool{
+public function addnyhet(string $name, string $innehall, string $username ) : bool{
     if (!$this->setname($name)) return false; 
     if (!$this->setinnehall($innehall)) return false; 
+    if (!$this->setusername($username)) return false; 
     //sql query 
- $sql = "INSERT INTO blogg(titel, innehall)VALUES('" .$this-> name . "', '" . $this-> innehall . "');";
+ $sql = "INSERT INTO blogg(titel, innehall, username)VALUES('$name',  '$innehall', '$username');";
   return mysqli_query ($this->db, $sql);
 
 }
@@ -54,6 +55,16 @@ public function setinnehall (string $innehall): bool {
         return false;
     }
 }
+public function setusername (){
+    if (mb_strlen($username) > 5 ) {
+        $this-> username = $username;
+        return true;
+    } else {
+        return false;
+    }
+   
+  }
+
 
 //läsa ut nyheter 
 public function getnyhet(): array{

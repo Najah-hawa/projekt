@@ -4,7 +4,7 @@ include("includes/header.php");
 ?>
 <?php
 //kontroll om användare är inloggas 
-if(!isset($_SESSION["email"])){
+if(!isset($_SESSION["username"])){
     header("Location: login.php?message=du måste vara inloggad!");
 }
 ?>
@@ -28,6 +28,7 @@ if (isset ($_GET['deleteid'])){
  if (isset($_POST["name"])){
     $name =$_POST["name"];
     $innehall =$_POST["innehall"];
+    $username =$_POST["username"];
     $success = true;
 
     if (!$nyhet-> setname($name)){
@@ -38,8 +39,12 @@ if (isset ($_GET['deleteid'])){
         $success = false;
         $felinnehall= "<p class='error'> Du måste ange en innehålls-text med minst 5 bokstäver! </P>";
     }
+    if (!$nyhet-> setusername($username)){
+        $success = false;
+        $felusername=  "<p class='error'> Du måste ange en username med minst 5 bokstäver! </P>";
+    }
     if($success){
-        if($nyhet->addnyhet($name, $innehall)){
+        if($nyhet->addnyhet($name, $innehall, $username)){
             echo "<p class='tillagd'> Nyhet tillagd! </P>";
 
         }else{
@@ -56,15 +61,11 @@ if (isset ($_GET['deleteid'])){
 
 
 <div class="out"> 
-<p> Welcome <?php if(isset($_SESSION["email"])){
-    $users = new Users();
-    $list = $users ->getusername();
-    foreach($list as $row){
-       
-         echo   $row['username'];
-        }
-    };
-        ?>
+<p> Welcome <?php 
+echo $_SESSION["username"];
+    ?>
+
+        
  </p>
 
 <p class="logaout"> <a href= "logaout.php" > Logga out </a> </p>
@@ -76,10 +77,16 @@ if (isset ($_GET['deleteid'])){
     <?php  if (isset ($feltitel)) {echo $feltitel;}?>
     <input class="användare"   type="text" name="name" id= "name" >
     <br> 
+    
     <label class="label" for="innehall"> Innehåll </label>
     <br> 
         <?php  if (isset ($felinnehall)) {echo $felinnehall;}?>
     <textarea  class="innehall" name="innehall" id= "innehall">  </textarea> 
+    <br> 
+    <label class="label" for="username"> username </label>
+    <br> 
+    <?php  if (isset ($felusername)) {echo $felusername;}?>
+    <input class="användare"   type="text" name="username" id= "username" >
     <br> 
     <input  class= "submit"  type="submit" value="Skapa nyhet"> 
 </form> 

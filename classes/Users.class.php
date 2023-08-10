@@ -64,27 +64,27 @@ public function setpassword (string $password): bool {
     }
 }
 
-//kontrollera om email är upptaget
-public function isemailtaken ($email){
-$email= $this->db->real_escape_string($email);
- if (!$this->setinnehall($email)) return false;   
- $sql = "SELECT email FROM users WHERE email= '$email'";
- $result= $this->db->query($sql);
- if ($result->num_rows > 0 ){
-    return true;
- }else{
-    return false;
- }
-}
+//kontrollera om username är upptaget
+public function isusernametaken ($username){
+    $username= $this->db->real_escape_string($username);
+     if (!$this->setname($username)) return false;   
+     $sql = "SELECT username FROM users WHERE username= '$username'";
+     $result= $this->db->query($sql);
+     if ($result->num_rows > 0 ){
+        return true;
+     }else{
+        return false;
+     }
+    }
 
 
 //log in användare 
-public function loginUser($email, $password){
+public function loginUser($username, $password){
     $password= $this->db->real_escape_string($password);
-    $email= $this->db->real_escape_string($email);
-    if (!$this->setinnehall($email)) return false;
+    $username= $this->db->real_escape_string($username);
+    if (!$this->setinnehall($username)) return false;
     if (!$this->setpassword($password)) return false;   
-    $sql = "SELECT password FROM users WHERE email= '$email'";
+    $sql = "SELECT password FROM users WHERE username= '$username'";
     $result= $this->db->query($sql);
 
     if ($result->num_rows > 0 ){
@@ -92,7 +92,7 @@ public function loginUser($email, $password){
         $storedpassword = $row['password'];
         //hash passsword på nytt för att kontrollera att lösenord är rätt
         if( $storedpassword == crypt ($password, $storedpassword )){
-            $_SESSION['email'] = $email;
+            $_SESSION['username'] = $username;
             return true;
         }else {
             return false;
@@ -109,8 +109,6 @@ public function getusername(): array{
     $result = mysqli_query ($this->db, $sql);
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-   
-
 
 
 

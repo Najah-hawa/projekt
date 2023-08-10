@@ -15,8 +15,8 @@ $users = new Users();
     $success = true;
 
 //kontrollera att email finns inte redan registerad som användare
-if ($users->isemailtaken($email)){
-     $message = "<p class='error'> email finns redan registerad </P>";
+if ($users->isusernametaken ($username)){
+     $message = "<p class='error'> användarnamn finns redan registerad </P>";
 }else {
 //kontroll att username, email och password har rätt längd 
     if (!$users-> setname($username)){

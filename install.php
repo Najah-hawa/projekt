@@ -12,25 +12,29 @@ if($db->connect_errno > 0){
 
 
 /* SQL-fråga för att skapa tabell */
-$sql = "DROP TABLE IF EXISTS blogg, users;";
-$sql.=  "CREATE TABLE blogg(
-    id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    titel VARCHAR(64) NOT NULL,
-    innehall text,
-    tid timestamp NOT NULL
-);";
+$sql = "DROP TABLE IF EXISTS users, blogg;";
+
 /* SQL-fråga för att skapa tabell */
 $sql .= "DROP TABLE IF EXISTS users;
     CREATE TABLE users(
+    id INT(11),
     username VARCHAR(64) NOT NULL PRIMARY KEY ,
     email VARCHAR(156),
     password VARCHAR(256)
 );";
+$sql.=  "CREATE TABLE blogg(
+    id INT(12) PRIMARY KEY AUTO_INCREMENT,
+    titel VARCHAR(64) NOT NULL,
+    innehall text,
+    username VARCHAR(64) NOT NULL,
+    tid timestamp NOT NULL
+);";
 /* SQL-fråga för att lägga in data */
-$sql .= "INSERT INTO blogg (titel, innehall ) VALUES
-('nyhet1','skriva lite text');";
 $sql .= "INSERT INTO users (username, email, password) VALUES
-('najah','najah@gmail.com', 'pass');";
+('najah','najah@gmail.com', 'password');";
+$sql .= "INSERT INTO blogg (titel, innehall, username) VALUES
+('nyhet1','skriva lite text', 'najah');";
+
 echo "<pre>$sql</pre>"; // Skriv ut SQL-frågan till skärm
 
 /* Skicka SQL-frågan till DB */

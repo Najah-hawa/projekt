@@ -15,14 +15,14 @@ if(isset($_GET['message'])){
 }
 ?>
 <?php  
-if(isset($_POST["email"])) {
+if(isset($_POST["username"])) {
 
-    $email = $_POST["email"];
+    $username = $_POST["username"];
     $password= $_POST["password"];
     $newuser= new Users();
     
-    if ($newuser -> loginUser($email, $password)) {
-        $_SESSION["email"] = $email;
+    if ($newuser -> loginUser($username, $password)) {
+        $_SESSION["username"] = $username;
         header("location:admin.php");
         
     }else {
@@ -38,9 +38,9 @@ if(isset($_POST["email"])) {
 ?> 
 
 <form  method="post" action="login.php" class="form">  
-     <label  class="label"  for="email" > Email: </label>
+     <label  class="label"  for="username" > username: </label>
      <br> 
-     <input class="användare" type="text" name="email" id="email"> 
+     <input class="användare" type="text" name="username" id="username"> 
      <br> 
      <label class="label"  for="password"> Lösenord: </label>
      <br> 
