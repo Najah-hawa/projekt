@@ -80,10 +80,10 @@ echo $_SESSION["username"];
         <?php  if (isset ($felinnehall)) {echo $felinnehall;}?>
     <textarea  class="innehall" name="innehall" id= "innehall">  </textarea> 
     <br> 
-    <label class="label" for="username"> username </label>
+    <label class= "hidden" for="username"> username </label>
     <br> 
     <?php  if (isset ($felusername)) {echo $felusername;}?>
-    <input class="användare"   type="text" name="username" id= "username" >
+    <input class= "hidden"class="användare"   type="text" name="username" id= "username" value="<?=$_SESSION["username"];?>">
     <br> 
     <input  class= "submit"  type="submit" value="Skapa nyhet"> 
 </form> 
