@@ -94,7 +94,8 @@ echo $_SESSION["username"];
 <?php 
 //SQL-fråga för att läsa ut inlaggda nyheter från tabellen  
 
-$list = $nyhet->getnyhet();
+$list = $nyhet->getusernyheter();
+
 foreach($list as $row){
        $innehall = $row['innehall'];
        
@@ -102,6 +103,7 @@ foreach($list as $row){
     <article class="article">
     <?php 
      echo  "" . "<h3>" .  $row['titel']. "</h3>" ;
+     echo  "" . "<h4>" . "författare är : " .  $row['username']. "</h4>" ;
      echo  "<p class='tid'>" .  $row['tid']. "</p>";
      echo  "<p class='text'> " .  substr($innehall, 0,  500 ) . "...." . "</p>"; 
     ?> 

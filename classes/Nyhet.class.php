@@ -19,7 +19,7 @@ if($this -> db->connect_errno > 0){
 
 
  //lägga till nya användare nyheter
- public function addnyhet(string $username, string $name, string $innehall) : bool{
+ public function addnyhet(string $name,string $innehall, string $username) : bool{
     $db = new mysqli("localhost", "username", "pass", "username");
     $username= $this->db->real_escape_string($username);
     $name= $this->db->real_escape_string($name);
@@ -29,7 +29,7 @@ if($this -> db->connect_errno > 0){
        if (!$this->setinnehall($innehall)) return false; 
      
        //sql query 
-    $sql = "INSERT INTO blogg(username, titel, innehall)VALUES('$username',  '$name', '$innehall');";
+    $sql = "INSERT INTO blogg( titel, innehall, username)VALUES('$name', '$innehall', '$username' );";
    
     $db->query($sql);
    return $sql;
@@ -82,9 +82,17 @@ public function getnyheter(): array{
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 }
+
 public function getallnyheter(): array{
   
     $sql = "SELECT * FROM  blogg ;";
+    $result = mysqli_query ($this->db, $sql);
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+}
+public function getusernyheter(): array{
+    
+    $sql = "SELECT * FROM  blogg WHERE username= '".$_SESSION['username']."';";
     $result = mysqli_query ($this->db, $sql);
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -98,6 +106,7 @@ public function getnyhetbyid(int $id): array{
     return $result-> fetch_assoc();
 
 }
+
 
 //radera nyheter
 public function deletenyhet(int $id) : bool {

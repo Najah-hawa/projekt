@@ -80,8 +80,8 @@ public function isusernametaken ($username){
 
 //log in användare 
 public function loginUser($username, $password){
-    $password= $this->db->real_escape_string($password);
     $username= $this->db->real_escape_string($username);
+    $password= $this->db->real_escape_string($password);
     if (!$this->setinnehall($username)) return false;
     if (!$this->setpassword($password)) return false;   
     $sql = "SELECT password FROM users WHERE username= '$username'";
@@ -92,7 +92,7 @@ public function loginUser($username, $password){
         $storedpassword = $row['password'];
         //hash passsword på nytt för att kontrollera att lösenord är rätt
         if( $storedpassword == crypt ($password, $storedpassword )){
-            $_SESSION['username'] = $username;
+            $_SESSION["username"] = $username;
             return true;
         }else {
             return false;

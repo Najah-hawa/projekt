@@ -4,7 +4,7 @@ include("includes/header.php");
 ?>
 <?php
 //kontroll om användare är inloggas 
-if(!isset($_SESSION["email"])){
+if(!isset($_SESSION["username"])){
     header("Location: login.php?message=du måste vara inloggad!");
 }
 
@@ -50,7 +50,7 @@ $detalis = $nyhet -> getnyhetbyid($id);
 
 
 <div class="out"> 
-<p> Welcome <?php echo $_SESSION['email']; ?>  </p>
+<p> Welcome <?php echo $_SESSION['username']; ?>  </p>
 <p class="logaout"> <a href= "logaout.php" > Logga out </a> </p>
 </div>
 
