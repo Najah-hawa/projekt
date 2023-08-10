@@ -17,16 +17,23 @@ if($this -> db->connect_errno > 0){
 }
 }
 
-//lägga nyheter
-public function addnyhet(string $name, string $innehall, string $username ) : bool{
-    if (!$this->setname($name)) return false; 
-    if (!$this->setinnehall($innehall)) return false; 
-    if (!$this->setusername($username)) return false; 
-    //sql query 
- $sql = "INSERT INTO blogg(titel, innehall, username)VALUES('$name',  '$innehall', '$username');";
-  return mysqli_query ($this->db, $sql);
 
-}
+ //lägga till nya användare nyheter
+ public function addnyhet(string $username, string $name, string $innehall) : bool{
+    $db = new mysqli("localhost", "username", "pass", "username");
+    $username= $this->db->real_escape_string($username);
+    $name= $this->db->real_escape_string($name);
+    $innehall= $this->db->real_escape_string($innehall);
+
+       if (!$this->setname($name)) return false; 
+       if (!$this->setinnehall($innehall)) return false; 
+     
+       //sql query 
+    $sql = "INSERT INTO blogg(username, titel, innehall)VALUES('$username',  '$name', '$innehall');";
+   
+    $db->query($sql);
+   return $sql;
+   }
 
 public function uppdatenyhet(int $id, string $name , string $innehall) : bool {
     if (!$this->setname($name)) return false; 
@@ -55,15 +62,6 @@ public function setinnehall (string $innehall): bool {
         return false;
     }
 }
-public function setusername (){
-    if (mb_strlen($username) > 5 ) {
-        $this-> username = $username;
-        return true;
-    } else {
-        return false;
-    }
-   
-  }
 
 
 //läsa ut nyheter 

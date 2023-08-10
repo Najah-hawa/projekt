@@ -39,10 +39,7 @@ if (isset ($_GET['deleteid'])){
         $success = false;
         $felinnehall= "<p class='error'> Du måste ange en innehålls-text med minst 5 bokstäver! </P>";
     }
-    if (!$nyhet-> setusername($username)){
-        $success = false;
-        $felusername=  "<p class='error'> Du måste ange en username med minst 5 bokstäver! </P>";
-    }
+
     if($success){
         if($nyhet->addnyhet($name, $innehall, $username)){
             echo "<p class='tillagd'> Nyhet tillagd! </P>";
