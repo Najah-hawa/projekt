@@ -68,6 +68,7 @@ height: auto;
 }
 
 
+
 /* gör design för form */
 .label{
     padding-left: 50px;
@@ -76,6 +77,11 @@ height: auto;
   p{
     font-size: 1.6rem;
     margin-left: 10%;
+  }
+  h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 50px;
   }
   .användare {
     margin-top: 15px;
@@ -109,9 +115,35 @@ form {
 }
 
 
+.li a{
+  color: black;
+  font-size: large;
+text-decoration: none;
+text-transform: uppercase;
+}
+.li {
+  padding-left: 20px;
+  padding-bottom: 30px;
+  text-shadow: 2px 4px 5px #4e6b68f0;
+}
+.li a:hover{
+  color: #35655ff0;
 
+}
+.article h2 {
+  padding-top: 30px;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
 
+.article .tid {
+  margin-left: 70px;
 
+}
+.article .text {
+  margin-bottom: 30px;
+
+}
 
 
 /* gör design för profile page*/
@@ -170,7 +202,8 @@ form {
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 40px;
-  padding-bottom: 40px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
   width: auto;
   height: auto;
   box-shadow: 4px 4px 10px 4px #4e6b68f0;
@@ -231,7 +264,13 @@ padding-left: 15%;
   display: none;
 }
 
-
+.bakåt a {
+text-decoration: none;
+}
+.bakåt p {
+font-size: medium;
+color: black;
+  }
 
 
 

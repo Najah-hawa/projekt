@@ -78,12 +78,12 @@ echo $_SESSION["username"];
     <label class="label" for="innehall"> Innehåll </label>
     <br> 
         <?php  if (isset ($felinnehall)) {echo $felinnehall;}?>
-    <textarea  class="innehall" name="innehall" id= "innehall">  </textarea> 
+    <textarea  class="innehall" name= "innehall" id= "innehall">  </textarea> 
     <br> 
-    <label class= "hidden" for="username"> username </label>
+    <label class= "hidden" for= "username"> username </label>
     <br> 
     <?php  if (isset ($felusername)) {echo $felusername;}?>
-    <input class= "hidden"class="användare"   type="text" name="username" id= "username" value="<?=$_SESSION["username"];?>">
+    <input class= "hidden"  type="text" name= "username" id= "username" value="<?=$_SESSION["username"];?>">
     <br> 
     <input  class= "submit"  type="submit" value="Skapa nyhet"> 
 </form> 

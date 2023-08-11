@@ -34,7 +34,7 @@ $list = $users ->getusername();
 foreach($list as $row){
     ?> 
 
-      <li >  <a href= "medlemar.php?username=<?= $row['username']; ?>"> <?php echo   "<li>" . $row['username']. "</li>" ;  ?></a> </li> 
+      <li class= "li" >  <a href= "medlemar.php?username=<?= $row['username']; ?>"> <?php echo $row['username'] ;  ?></a> </li> 
 <?php 
 }
 ?>

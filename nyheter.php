@@ -31,3 +31,5 @@ foreach($list as $row){
 
 
 </article> 
+</div> 
+</div> 
