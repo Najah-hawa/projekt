@@ -106,6 +106,13 @@ public function getnyhetbyid(int $id): array{
     return $result-> fetch_assoc();
 
 }
+public function getuserblogg($username): array{
+    $username= strval($username);
+    $sql = "SELECT * FROM blogg WHERE username = '$username';";
+    $result = mysqli_query ($this->db, $sql);
+    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+  
+}
 
 
 //radera nyheter

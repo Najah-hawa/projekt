@@ -17,13 +17,13 @@ $sql = "DROP TABLE IF EXISTS users, blogg;";
 /* SQL-fråga för att skapa tabell */
 $sql .= "DROP TABLE IF EXISTS users;
     CREATE TABLE users(
-    id INT(11),
-    username VARCHAR(64) NOT NULL PRIMARY KEY ,
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(64) NOT NULL ,
     email VARCHAR(156),
     password VARCHAR(256)
 );";
 $sql.=  "CREATE TABLE blogg(
-    id INT(12) PRIMARY KEY AUTO_INCREMENT,
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
     titel VARCHAR(64) NOT NULL,
     innehall text,
     username VARCHAR(64) NOT NULL,
