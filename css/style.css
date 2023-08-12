@@ -309,6 +309,46 @@ color: black;
         color: black;
         text-shadow: 2px 4px 5px #0e1617f0;
       }
-
+      .användare {
+        width: 75%;
+ 
+    }
+    .innehall {
+      width: 75%;
+  }
+  .submit {
+    width: 50%;
+    margin-left: 25%;
+}
+.out p {
+  padding-left: 0%;
+}
+h2 {
+   font-size: 1.5rem;
+}
     }
 
+
+@media (max-width:800px){
+  .container {
+ display: block;
+}
+
+.main-container {
+  width: 100%;
+  margin-left: 0px;
+}
+h2{
+padding-top: 20px;
+}
+#mainheader {
+ padding: 40px 80px; 
+}
+.knappar {
+margin-left: 0%;
+}
+p {
+  font-size: 1.3rem;
+  margin-left: 3%;
+}
+}

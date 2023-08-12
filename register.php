@@ -34,11 +34,11 @@ if ($users->isusernametaken ($username)){
  //lägg till användare till databasen. 
     if($success){
         if($users->registerUser($username, $email,$password )){
-          $message = "<p class='error'> användare tillagd! </P>";
+          $message = "<p class='error'> Användare tillagd! Vänligen login. </P>";
         }else{
           $message =  "<p class='error'> Fel vid registering </P>";
         } }else {  
-          $message = "<p class='error'> användare ej tillagd, försök igen senare. </P>";   
+          $message = "<p class='error'> Användare ej tillagd, försök igen senare. </P>";   
     }
 }
 }
