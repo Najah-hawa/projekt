@@ -10,7 +10,7 @@ private $username;
 //construktor
 function __construct(){
 //connect to db 
-$this -> db =new mysqli("localhost", "username", "pass", "username");
+$this -> db =new mysqli('studentmysql.miun.se', 'naha2204', '6337PJNrZr', 'naha2204');
 
 if($this -> db->connect_errno > 0){
     die('Fel vid anslutning försök igen [' . $db->connect_error . ']');
@@ -20,7 +20,7 @@ if($this -> db->connect_errno > 0){
 
  //lägga till nya användare nyheter
  public function addnyhet(string $name,string $innehall, string $username) : bool{
-    $db = new mysqli("localhost", "username", "pass", "username");
+    $db = new mysqli('studentmysql.miun.se', 'naha2204', '6337PJNrZr', 'naha2204');
     $username= $this->db->real_escape_string($username);
     $name= $this->db->real_escape_string($name);
     $innehall= $this->db->real_escape_string($innehall);

@@ -5,7 +5,7 @@ include("includes/config.php");
 
 
 /* Anslut med nytt konto för varor */
-$db = new mysqli("localhost", "username", "pass", "username");
+$db = new mysqli('studentmysql.miun.se', 'naha2204', '6337PJNrZr', 'naha2204');
 if($db->connect_errno > 0){
     die('Fel vid anslutning [' . $db->connect_error . ']');
 } 

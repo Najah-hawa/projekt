@@ -11,7 +11,7 @@ private $password;
 
 //anslutning till databas
 function __construct(){
-    $this -> db =new mysqli("localhost", "username", "pass", "username");
+    $this -> db =new mysqli('studentmysql.miun.se', 'naha2204', '6337PJNrZr', 'naha2204');
     
     if($this -> db->connect_errno > 0){
         die('Fel vid anslutning försök igen [' . $db->connect_error . ']');
@@ -20,7 +20,7 @@ function __construct(){
     
  //lägga till nya användare nyheter
     public function registerUser(string $username, string $email, string $password) : bool{
-     $db = new mysqli("localhost", "username", "pass", "username");
+     $db = new mysqli('studentmysql.miun.se', 'naha2204', '6337PJNrZr', 'naha2204');
      $username= $this->db->real_escape_string($username);
      $email= $this->db->real_escape_string($email);
      //hash password 
