@@ -15,7 +15,7 @@ include("includes/header.php");
 <?php 
 //SQL-fråga för att läsa ut inlaggda nyheter från tabellen  
 $nyhet = new Nyhet();
-$list = $nyhet->getuserblogg($username);
+$list = $nyhet->getusernyhet($username);
 
 foreach($list as $row){
        $innehall = $row['innehall'];

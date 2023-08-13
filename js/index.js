@@ -6,3 +6,11 @@ function myFunction() {
       x.style.display = "block";
     }
   }
+
+
+// function för att scroll för att läsa mer 
+let x = 0;
+function myFunction() {
+  document.getElementById("demo").innerHTML = x += 1;
+}
+

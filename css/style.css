@@ -4,7 +4,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.div {
+  border: 1px solid black;
+  width: 75%;
+  height: 100px;
+  overflow: scroll;
+}
 /* gör design för toppnav*/
 #mainheader{
     background-color: #303434;
@@ -249,7 +254,7 @@ margin-top: 20px;
 }
 .radera a{
 color: black;
-padding-left: 15%;
+padding-left: 2%;
 }
 .radera a:link{
  text-decoration: none;
@@ -349,6 +354,6 @@ margin-left: 0%;
 }
 p {
   font-size: 1.3rem;
-  margin-left: 3%;
+  margin-left: 4%;
 }
 }

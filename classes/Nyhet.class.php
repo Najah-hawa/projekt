@@ -36,6 +36,8 @@ if($this -> db->connect_errno > 0){
    }
 
 public function uppdatenyhet(int $id, string $name , string $innehall) : bool {
+    $name= $this->db->real_escape_string($name);
+    $innehall= $this->db->real_escape_string($innehall);
     if (!$this->setname($name)) return false; 
     if (!$this->setinnehall($innehall)) return false;  
     $sql = "UPPDATE blogg SET titel = , innehall = WHERE id = $id;";
@@ -92,7 +94,7 @@ public function getallnyheter(): array{
 }
 public function getusernyheter(): array{
     
-    $sql = "SELECT * FROM  blogg WHERE username= '".$_SESSION['username']."';";
+    $sql = "SELECT * FROM  blogg WHERE username= '".$_SESSION['username']."' ORDER BY tid DESC ;";
     $result = mysqli_query ($this->db, $sql);
     return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -106,7 +108,7 @@ public function getnyhetbyid(int $id): array{
     return $result-> fetch_assoc();
 
 }
-public function getuserblogg($username): array{
+public function getusernyhet($username): array{
     $username= strval($username);
     $sql = "SELECT * FROM blogg WHERE username = '$username';";
     $result = mysqli_query ($this->db, $sql);

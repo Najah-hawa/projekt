@@ -105,7 +105,7 @@ foreach($list as $row){
      echo  "" . "<h3>" .  $row['titel']. "</h3>" ;
      echo  "" . "<h4 class='h4'>" . "författare är : " .  $row['username']. "</h4>" ;
      echo  "<p class='tid'>" .  $row['tid']. "</p>";
-     echo  "<p class='text'> " .  substr($innehall, 0,  500 ) . "...." . "</p>"; 
+     echo  "<p class='text' > " .  substr($innehall, 0,  500 ) . "...." . "</p>"; 
     ?> 
   <div class='knappar'>   
   <p class='radera'>  <a href= "admin.php?deleteid=<?= $row['id']; ?>">Radera</a> </p> 

@@ -9,7 +9,6 @@ include("includes/header.php");
 <article id = "postHolder"> 
 
 
-
 <?php
 $nyheter = new Nyhet();
 $list = $nyheter->getnyheter();
@@ -21,9 +20,9 @@ foreach($list as $row){
      echo  "" . "<h3>" .  $row['titel']. "</h3>" ;
      echo  "" . "<h4 class='tid'>" . "författare är : ".  $row['username']. "</h4>" ;
      echo  "<p class='tid'>" .  $row['tid']. "</p>";
-     echo  "<p class='text'> " .  substr($innehall, 0,  500,  ) . "...." . "</p>"; 
+     echo  "<p class='div' onscroll='myFunction()' > " .  $innehall . "</p>"; 
     ?> 
-    <p class='radera'>  <a href= "details.php?id=<?= $row['id']; ?> ">läsa mer</a> </p> </article>
+    <p class='radera'>  <a href= "details.php?id=<?= $row['id']; ?> ">öppna nyhet</a> </p> </article>
     <?php
 }
 
