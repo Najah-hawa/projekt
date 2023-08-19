@@ -1,4 +1,4 @@
 <?php
 
-$row = intval($_GET['row']);
-echo $row;
+$deleteid = intval($_GET['deleteid']);
+echo $deleteid;
